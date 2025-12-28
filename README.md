@@ -1,119 +1,124 @@
 # OakFund
 
-OakFund is a native desktop app (C++) built for Solana wallet setup and funding workflows — with secure local key generation, live monitoring, and a clean desktop UI.
+Desktop app built to set up and fund Solana wallets you control, with secure local key generation.
 
-Download / pricing / full site: https://oakfund.app  
-Demo/screens: https://imgur.com/a/VardAc9  
-Discord: https://discord.gg/2amP69bfgV  
-Telegram: https://t.me/oakfund  
-Contact: dreamyoaky@gmail.com
+Full info (download, pricing, docs): https://oakfund.app
 
-## What OakFund is
+<p align="center">
+  <img src="https://www.oakfund.app/_next/image?q=75&url=%2Fimage.png&w=3840" alt="OakFund interface preview" width="900" />
+</p>
 
-Purpose-built desktop tooling for people who want a reliable, daily-use workflow around Solana wallets:
-- generate wallets locally
-- monitor progress live
-- manage results cleanly
-- optionally check balances via RPC (for wallets/addresses you control or for testing)
+<p align="center">
+  <video src="https://www.oakfund.app/demo.mp4" width="900" controls muted playsinline></video>
+</p>
 
-Not a generic “random script.” Not a browser toy.
+## Quick links
 
-## Core features
+- Site / Download / Pricing: https://oakfund.app
+- Demo/screens: https://imgur.com/a/VardAc9
+- Discord: https://discord.gg/E3nfuS2U3r
+- Telegram: https://t.me/oakfund
+- Contact: dreamyoaky@gmail.com
 
-### BIP39 generation + Solana derivation
-- Random 12-word BIP39 mnemonics using an embedded 2048-word english wordlist
-- PBKDF2-HMAC-SHA512 derivation (2048 iterations) → seed
-- Ed25519 key derivation
-- base58 output (Solana-ready)
+<details>
+  <summary><strong>What it is</strong></summary>
 
-### Performance
-- Multi-threaded engine
-- Configurable thread count
-- Real-time wallets/second + running totals
+OakFund is a native desktop app (C++) built for Solana wallet workflows with desktop polish.
 
-### Live monitoring
-- Color-coded terminal output
-- Timestamps
-- Valid/invalid indicators
-- Auto-scroll toggle
-- Configurable line cap
+- Purpose-built for Solana wallet setup + funding workflows (not a generic script)
+- Local key generation
+- Live monitoring and stats while running
+- Simple licensing (1 device activation)
 
-### Stats + history
-- Stat cards tracking:
-  - wallets checked
-  - generation speed
-  - runtime
-  - hits/results found
-  - total balance across sessions (when balance checking is enabled)
-- Lifetime/session history dashboard:
-  - total wallets checked
-  - results found
-  - runtime
-  - session count
-  - aggregated totals
+</details>
 
-### UX / controls
-- START / STOP controls with clean state transitions
-- Copy-last-key button appears on results
-- Clean dark UI (custom GDI+ theme)
+<details>
+  <summary><strong>What it does</strong></summary>
 
-### Alerts
-- System tray notifications / on-screen dialogs on results
-- Optional auto-copy to clipboard
+- **BIP39 generation**
+  - Generates random 12-word BIP39 seed phrases using an embedded `english.txt` wordlist
+- **Derivation pipeline**
+  - PBKDF2-HMAC-SHA512 (2048) → seed
+  - Ed25519 key derivation
+  - base58 output (Solana-ready)
+- **Performance**
+  - Multi-threaded engine with configurable thread count
+  - Real-time wallets/second + running totals
+- **Live monitoring**
+  - Color-coded terminal output with timestamps
+  - Valid/invalid indicators
+  - Auto-scroll toggle
+  - Configurable line cap
+- **Stats + history**
+  - Stat cards for wallets checked, speed, runtime, results found, and totals across sessions
+  - Lifetime dashboard aggregates runs (wallets checked, results, runtime, session count)
+- **Controls**
+  - START/STOP with clean transitions
+  - Copy-last-key button on results
+- **Alerts**
+  - System tray toasts + dialogs on results
+  - Optional auto-copy to clipboard
+- **Optional**
+  - Solana RPC balance checking (for your own addresses / test environments)
 
-### Settings
-- Threads
-- Max lines
-- Notifications
-- Save-results preferences
-- Auto-update flag (if enabled in your build)
-- Settings stored locally
+</details>
 
-### Licensing
-- 1 device activation
-- Week / month / lifetime licenses
-- Local validation with expiry tracking
-- Obfuscated local storage under `HKCU\Software\Tnagie`
+<details>
+  <summary><strong>How it works (high level)</strong></summary>
 
-## How it works (high-level)
+1) Generate a 12-word BIP39 mnemonic  
+2) Derive the BIP39 seed with PBKDF2-HMAC-SHA512 (2048 iterations)  
+3) Derive an Ed25519 keypair  
+4) Encode output as base58 for Solana-friendly usage  
+5) (Optional) Check balances through Solana RPC if enabled
 
-1) Generate a 12-word BIP39 mnemonic (local)
-2) Derive seed via PBKDF2-HMAC-SHA512 (2048)
-3) Derive Ed25519 keypair
-4) Encode output for Solana (base58)
-5) Optionally check balances via Solana RPC (for your own wallets/addresses or test environments)
+</details>
 
-## Privacy promise
+<details>
+  <summary><strong>Privacy</strong></summary>
 
-Privacy by design:
-- Local-only key generation
+Privacy by design.
+
+- Local-only keys (generated and stored on-device)
 - No ads, no trackers, no third-party analytics
-- Minimal data: only what’s needed for licensing/support
+- Minimal data: only what’s needed for licensing and support
 
-Read more on the site: https://oakfund.app
+Read more: https://oakfund.app
 
-## Plans
+</details>
 
-Pricing and plan details live here: https://oakfund.app
+<details>
+  <summary><strong>Licensing and plans</strong></summary>
 
-- 1 Week — $200
-- 1 Month — $500
-- Lifetime — $2000
+- 1 device activation
+- Week / month / lifetime options
+- Local validation with expiry tracking
+- Obfuscated storage under `HKCU\Software\Tnagie`
 
-## Technical specs (quick)
+Pricing and plan details: https://oakfund.app
+
+</details>
+
+<details>
+  <summary><strong>Technical specs</strong></summary>
 
 - BIP39 12-word seed phrase generation
 - PBKDF2 + Ed25519 key derivation
-- base58 private key output (64 bytes)
+- Base58 private key output (64 bytes)
 - Optional Solana RPC balance checking
 - Custom GDI+ dark theme UI
 - Obfuscated registry storage (HKCU)
 
-## Notes
+</details>
+
+<details>
+  <summary><strong>Notes</strong></summary>
 
 Seed phrases are sensitive. Treat them like cash:
 - keep them offline
 - don’t paste them into random tools/sites
 - don’t generate keys on machines you don’t trust
 
-For full docs, downloads, and updates: https://oakfund.app
+Everything else (download/pricing/docs): https://oakfund.app
+
+</details>
